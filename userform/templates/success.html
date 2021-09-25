@@ -1,0 +1,71 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>Application Form</title>
+  </head>
+  <body>
+  
+
+  <div class="content">
+    
+    <div class="container">
+
+      
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          
+          <div class="row align-items-center">
+            <div class="col-lg-7 mb-5 mb-lg-0">
+
+              <h3 class="mb-5">Already Registerd Users <br></h3>
+
+              <table class="center" style="width:100%">
+                <tr id="header">
+                    
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Date of Birth</th>
+                    <th>Phone</th>
+                    
+                </tr>
+                
+                {% for n,d,e,p in comb_lis %}
+                <tr>
+                  
+                    <td>{{n}}</td>
+                    <td>{{d}}</td>
+                    <td>{{e}}</td>
+                    <td>{{p}}</td>
+                    
+                 </tr>
+                 
+                 {% endfor %}
+            </table>
+
+              
+
+            </div>
+            
+          </div>
+        </div>  
+        </div>
+      </div>
+  </div>
+    
+    
+
+   
+  </body>
+</html>

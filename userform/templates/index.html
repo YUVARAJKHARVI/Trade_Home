@@ -1,0 +1,89 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,700,900&display=swap" rel="stylesheet">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    
+    <!-- Style -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+    <title>Application Form</title>
+  </head>
+  <body>
+  
+
+  <div class="content">
+    
+    <div class="container">
+
+      
+      <div class="row justify-content-center">
+        <div class="col-md-10">
+          
+          <div class="row align-items-center">
+            <div class="col-lg-7 mb-5 mb-lg-0">
+
+              <h2 class="mb-5">Fill the form <br></h2>
+
+              <form class="border-right pr-5 mb-5" method="post" action="register" id="contactForm" name="contactForm">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="text" class="form-control" name="username" id="fname" placeholder="Name">
+                  </div>
+                </div>  
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="mail" class="form-control" name="email" id="email" placeholder="Email">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    
+                    <input type="text" class="form-control" onfocus="(this.type='date')" name="date" id="date" max="2003-05-01" oninvalid="this.setCustomValidity('Age must be greater than 18 years!')" oninput="this.setCustomValidity('')" value="" required="" data-format="dd/mm/yyyy" data-seperator="/" autoComplete="off" placeholder="Date Of Birth">
+
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12 form-group">
+                    <input type="text" class="form-control" pattern="[7-9]{1}[0-9]{9}" title="Phone number with 7-9 and remaing 9 digit with 0-9" name="phone" id="phone" placeholder="Phone Number">
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-md-12">
+                    <input type="submit" value="Submit" class="btn btn-primary rounded-0 py-2 px-4">
+                    <span class="submitting"></span>
+                  </div>
+                </div>
+              </form>
+              {% if messages %}
+                {% for messages in messages %}
+                <div >
+                  <script>
+                    alert('{{ messages }}');
+                </script>
+                </div>
+                {% endfor %}
+                {% endif %} 
+             
+                
+
+            </div>
+            
+          </div>
+        </div>  
+        </div>
+      </div>
+  </div>
+    
+    
+
+   
+  </body>
+</html>
